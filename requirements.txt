@@ -1,0 +1,15 @@
+# The requirements.txt of this project is the same as that of the AVDN baseline.
+tqdm==4.62.0
+jsonlines==2.0.0
+timm==0.4.9
+h5py==3.1.0
+networkx==2.5.1
+easydict==1.9
+lmdb==1.2.1
+numpy==1.21.4
+Pillow==8.4.0
+transformers==4.19.4
+tensorboardX==2.5.1
+Shapely==1.8.2
+gdown==4.7.1
+opencv-python==4.6.0.66
