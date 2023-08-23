@@ -42,8 +42,8 @@ pip install -r requirements.txt
 
 1. Please download the xView dataset from [https://challenge.xviewdataset.org/data-download](https://challenge.xviewdataset.org/data-download).
 2. Please download the ANDH dataset from [https://sites.google.com/view/aerial-vision-and-dialog/home](https://sites.google.com/view/aerial-vision-and-dialog/home).
-3. Please download the converted xView-pretrained Yolov5x backbone weight from [here](https://drive.google.com/file/d/1fUII6iBEoZXZO72j1WOqIefl77h6EtTr/view?usp=drive_link). Or you can obtain the complete weights from [https://huggingface.co/deprem-ml/Binafarktespit-yolo5x-v1-xview](https://huggingface.co/deprem-ml/Binafarktespit-yolo5x-v1-xview)and personally load them into the network.
-4. Please download our LLM-augmented instructions dataset using Vicuna-33b from [here](https://drive.google.com/file/d/1G3m2KTKt3EWnvR24d5fZlLnjisADzkzp/view?usp=drive_link). Alternatively, you can use [FastChat](https://github.com/lm-sys/FastChat) to personally enhance training instructions.
+3. Please download the converted xView-pretrained Yolov5x backbone weight from [here](https://drive.google.com/file/d/1G3m2KTKt3EWnvR24d5fZlLnjisADzkzp/view?usp=drive_link). Or you can obtain the complete weights from [https://huggingface.co/deprem-ml/Binafarktespit-yolo5x-v1-xview](https://huggingface.co/deprem-ml/Binafarktespit-yolo5x-v1-xview)and personally load them into the network.
+4. Please download our LLM-augmented instructions dataset using Vicuna-33b from  [here](https://drive.google.com/file/d/1fUII6iBEoZXZO72j1WOqIefl77h6EtTr/view?usp=drive_link). Alternatively, you can use [FastChat](https://github.com/lm-sys/FastChat) to personally enhance training instructions.
 
 After downloading the aforementioned data, please organize the entire project according to the following structure:
 
