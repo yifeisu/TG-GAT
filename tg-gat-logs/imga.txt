@@ -1,0 +1,845 @@
+Namespace(act_pred_token='ob_txt', angle_feat_size=4, batch_size=4, ckpt_dir='./logs/ckpts', darknet_model_file='../../datasets/AVDN/pretrain_weights/yolo_v3.cfg', darknet_weight_file='../../datasets/AVDN/pretrain_weights/best.pt', demb=768, dropout=0.5, dropout_emb=0, dropout_transformer_encoder=0.1, encoder_heads=12, encoder_layers=2, entropy_loss_weight=0.01, epsilon=0.1, eval_first=False, feat_dropout=0.4, feedback='student', fix_obs_embedding=False, ignoreid=-100, image_feat_size=2048, inference=False, iters=160000, language_only=False, local_rank=-1, log_dir='./logs/logs', log_every=1, lr=1e-05, max_action_len=10, max_instr_len=100, ml_weight=0.2, no_cand_backtrack=False, no_direction=False, node_rank=0, nss_r=0, nss_w=0.1, num_h_layers=0, num_input_actions=1, num_l_layers=9, num_replacement=False, num_x_layers=4, optim='adamW', output_dir='./logs/', parsed_instruction=False, pred_dir='./logs/preds', resume_file=None, resume_optimizer=False, root_dir='../../datasets', seed=0, submit=False, teacher='final', teacher_weight=1.0, tokenizer='bert', train_anno_dir='../../datasets/AVDN/annotations', train_dataset_dir='../../datasets/AVDN/train_images', train_val_on_full=False, val_anno_dir='../../datasets/AVDN/annotations', val_dataset_dir='../../datasets/AVDN/train_images', views=36, vision_only=False, weight_decay=0.0, world_size=1)
+
+
+
+Listener training starts, start iteration: 0
+
+IL_loss 1.8644
+33m 15s (- 4606m 7s) (1147 0%) iter 1147, val_seen , lengths: 58.74, sr: 2.43, oracle_sr: 5.68, spl: 0.75, gp: 12.44, oracle_gp: 3.90, gt_length: 154.19, iou: 0.08, num_1: 370.00, spl_1: 0.75, sr_1: 2.43, gp_1: 12.44, val_unseen , lengths: 58.83, sr: 6.81, oracle_sr: 9.25, spl: 2.45, gp: 12.10, oracle_gp: 3.98, gt_length: 150.99, iou: 0.10, num_1: 411.00, spl_1: 2.45, sr_1: 6.81, gp_1: 12.10, val_seen_human_att , HA_precision: 0.40, HA_recall: 0.40, nss: -0.26, val_unseen_human_att , HA_precision: 0.37, HA_recall: 0.37, nss: -0.14
+BEST RESULT TILL NOW
+val_unseen | Iter 1147 iter 1147, val_seen , lengths: 58.74, sr: 2.43, oracle_sr: 5.68, spl: 0.75, gp: 12.44, oracle_gp: 3.90, gt_length: 154.19, iou: 0.08, num_1: 370.00, spl_1: 0.75, sr_1: 2.43, gp_1: 12.44, val_unseen , lengths: 58.83, sr: 6.81, oracle_sr: 9.25, spl: 2.45, gp: 12.10, oracle_gp: 3.98, gt_length: 150.99, iou: 0.10, num_1: 411.00, spl_1: 2.45, sr_1: 6.81, gp_1: 12.10
+val_unseen_full_traj | 
+
+IL_loss 1.7884
+67m 41s (- 4654m 3s) (2294 1%) iter 2294, val_seen , lengths: 63.96, sr: 2.70, oracle_sr: 4.86, spl: 1.03, gp: 12.26, oracle_gp: 4.30, gt_length: 154.19, iou: 0.08, num_1: 370.00, spl_1: 1.03, sr_1: 2.70, gp_1: 12.26, val_unseen , lengths: 62.75, sr: 5.84, oracle_sr: 9.73, spl: 1.95, gp: 11.54, oracle_gp: 4.01, gt_length: 150.99, iou: 0.10, num_1: 411.00, spl_1: 1.95, sr_1: 5.84, gp_1: 11.54, val_seen_human_att , HA_precision: 0.38, HA_recall: 0.38, nss: -0.24, val_unseen_human_att , HA_precision: 0.38, HA_recall: 0.38, nss: -0.12
+BEST RESULT TILL NOW
+val_unseen | Iter 1147 iter 1147, val_seen , lengths: 58.74, sr: 2.43, oracle_sr: 5.68, spl: 0.75, gp: 12.44, oracle_gp: 3.90, gt_length: 154.19, iou: 0.08, num_1: 370.00, spl_1: 0.75, sr_1: 2.43, gp_1: 12.44, val_unseen , lengths: 58.83, sr: 6.81, oracle_sr: 9.25, spl: 2.45, gp: 12.10, oracle_gp: 3.98, gt_length: 150.99, iou: 0.10, num_1: 411.00, spl_1: 2.45, sr_1: 6.81, gp_1: 12.10
+val_unseen_full_traj | 
+
+IL_loss 1.7027
+103m 43s (- 4719m 39s) (3441 2%) iter 3441, val_seen , lengths: 94.39, sr: 7.84, oracle_sr: 11.89, spl: 5.91, gp: 31.91, oracle_gp: 36.63, gt_length: 154.19, iou: 0.13, num_1: 370.00, spl_1: 5.91, sr_1: 7.84, gp_1: 31.91, val_unseen , lengths: 91.04, sr: 10.46, oracle_sr: 16.79, spl: 6.21, gp: 32.56, oracle_gp: 36.02, gt_length: 150.99, iou: 0.15, num_1: 411.00, spl_1: 6.21, sr_1: 10.46, gp_1: 32.56, val_seen_human_att , HA_precision: 0.37, HA_recall: 0.37, nss: -0.34, val_unseen_human_att , HA_precision: 0.38, HA_recall: 0.38, nss: -0.18
+BEST RESULT TILL NOW
+val_unseen | Iter 3441 iter 3441, val_seen , lengths: 94.39, sr: 7.84, oracle_sr: 11.89, spl: 5.91, gp: 31.91, oracle_gp: 36.63, gt_length: 154.19, iou: 0.13, num_1: 370.00, spl_1: 5.91, sr_1: 7.84, gp_1: 31.91, val_unseen , lengths: 91.04, sr: 10.46, oracle_sr: 16.79, spl: 6.21, gp: 32.56, oracle_gp: 36.02, gt_length: 150.99, iou: 0.15, num_1: 411.00, spl_1: 6.21, sr_1: 10.46, gp_1: 32.56
+val_unseen_full_traj | 
+
+IL_loss 1.5169
+140m 18s (- 4752m 28s) (4588 2%) iter 4588, val_seen , lengths: 119.76, sr: 7.84, oracle_sr: 17.30, spl: 5.29, gp: 43.04, oracle_gp: 56.70, gt_length: 154.19, iou: 0.15, num_1: 370.00, spl_1: 5.29, sr_1: 7.84, gp_1: 43.04, val_unseen , lengths: 120.72, sr: 11.92, oracle_sr: 24.57, spl: 8.13, gp: 46.28, oracle_gp: 59.04, gt_length: 150.99, iou: 0.18, num_1: 411.00, spl_1: 8.13, sr_1: 11.92, gp_1: 46.28, val_seen_human_att , HA_precision: 0.40, HA_recall: 0.40, nss: -0.44, val_unseen_human_att , HA_precision: 0.41, HA_recall: 0.41, nss: -0.26
+BEST RESULT TILL NOW
+val_unseen | Iter 4588 iter 4588, val_seen , lengths: 119.76, sr: 7.84, oracle_sr: 17.30, spl: 5.29, gp: 43.04, oracle_gp: 56.70, gt_length: 154.19, iou: 0.15, num_1: 370.00, spl_1: 5.29, sr_1: 7.84, gp_1: 43.04, val_unseen , lengths: 120.72, sr: 11.92, oracle_sr: 24.57, spl: 8.13, gp: 46.28, oracle_gp: 59.04, gt_length: 150.99, iou: 0.18, num_1: 411.00, spl_1: 8.13, sr_1: 11.92, gp_1: 46.28
+val_unseen_full_traj | 
+
+IL_loss 1.3954
+176m 13s (- 4740m 10s) (5735 3%) iter 5735, val_seen , lengths: 130.48, sr: 10.81, oracle_sr: 20.81, spl: 7.45, gp: 50.23, oracle_gp: 62.80, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.45, sr_1: 10.81, gp_1: 50.23, val_unseen , lengths: 133.31, sr: 13.63, oracle_sr: 23.84, spl: 8.18, gp: 49.65, oracle_gp: 62.87, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 8.18, sr_1: 13.63, gp_1: 49.65, val_seen_human_att , HA_precision: 0.40, HA_recall: 0.40, nss: -0.51, val_unseen_human_att , HA_precision: 0.43, HA_recall: 0.43, nss: -0.32
+BEST RESULT TILL NOW
+val_unseen | Iter 5735 iter 5735, val_seen , lengths: 130.48, sr: 10.81, oracle_sr: 20.81, spl: 7.45, gp: 50.23, oracle_gp: 62.80, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.45, sr_1: 10.81, gp_1: 50.23, val_unseen , lengths: 133.31, sr: 13.63, oracle_sr: 23.84, spl: 8.18, gp: 49.65, oracle_gp: 62.87, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 8.18, sr_1: 13.63, gp_1: 49.65
+val_unseen_full_traj | 
+
+IL_loss 1.3205
+212m 54s (- 4737m 8s) (6882 4%) iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71, val_seen_human_att , HA_precision: 0.39, HA_recall: 0.39, nss: -0.49, val_unseen_human_att , HA_precision: 0.41, HA_recall: 0.41, nss: -0.30
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 1.2520
+248m 59s (- 4712m 53s) (8029 5%) iter 8029, val_seen , lengths: 132.41, sr: 10.54, oracle_sr: 19.19, spl: 7.22, gp: 48.81, oracle_gp: 61.44, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.22, sr_1: 10.54, gp_1: 48.81, val_unseen , lengths: 132.79, sr: 14.84, oracle_sr: 26.28, spl: 10.24, gp: 52.96, oracle_gp: 64.12, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 10.24, sr_1: 14.84, gp_1: 52.96, val_seen_human_att , HA_precision: 0.42, HA_recall: 0.42, nss: -0.59, val_unseen_human_att , HA_precision: 0.43, HA_recall: 0.43, nss: -0.40
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 1.1953
+285m 18s (- 4689m 33s) (9176 5%) iter 9176, val_seen , lengths: 151.53, sr: 10.27, oracle_sr: 21.35, spl: 7.70, gp: 45.41, oracle_gp: 68.45, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.70, sr_1: 10.27, gp_1: 45.41, val_unseen , lengths: 156.38, sr: 14.84, oracle_sr: 28.22, spl: 10.27, gp: 44.65, oracle_gp: 71.40, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 10.27, sr_1: 14.84, gp_1: 44.65, val_seen_human_att , HA_precision: 0.42, HA_recall: 0.42, nss: -0.58, val_unseen_human_att , HA_precision: 0.43, HA_recall: 0.43, nss: -0.40
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 1.1458
+321m 47s (- 4665m 46s) (10323 6%) iter 10323, val_seen , lengths: 125.62, sr: 11.89, oracle_sr: 20.54, spl: 8.74, gp: 55.30, oracle_gp: 63.53, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 8.74, sr_1: 11.89, gp_1: 55.30, val_unseen , lengths: 127.76, sr: 15.09, oracle_sr: 24.33, spl: 10.80, gp: 55.47, oracle_gp: 63.79, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 10.80, sr_1: 15.09, gp_1: 55.47, val_seen_human_att , HA_precision: 0.42, HA_recall: 0.42, nss: -0.65, val_unseen_human_att , HA_precision: 0.44, HA_recall: 0.44, nss: -0.44
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 1.1012
+357m 54s (- 4634m 48s) (11470 7%) iter 11470, val_seen , lengths: 127.03, sr: 11.62, oracle_sr: 21.35, spl: 7.96, gp: 53.16, oracle_gp: 61.47, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.96, sr_1: 11.62, gp_1: 53.16, val_unseen , lengths: 126.19, sr: 13.14, oracle_sr: 23.36, spl: 8.74, gp: 55.18, oracle_gp: 62.76, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 8.74, sr_1: 13.14, gp_1: 55.18, val_seen_human_att , HA_precision: 0.45, HA_recall: 0.45, nss: -0.67, val_unseen_human_att , HA_precision: 0.44, HA_recall: 0.44, nss: -0.48
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 1.0496
+394m 30s (- 4608m 27s) (12617 7%) iter 12617, val_seen , lengths: 175.82, sr: 9.73, oracle_sr: 22.70, spl: 6.30, gp: 39.98, oracle_gp: 73.65, gt_length: 154.19, iou: 0.16, num_1: 370.00, spl_1: 6.30, sr_1: 9.73, gp_1: 39.98, val_unseen , lengths: 173.93, sr: 15.57, oracle_sr: 29.44, spl: 10.18, gp: 41.49, oracle_gp: 72.32, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 10.18, sr_1: 15.57, gp_1: 41.49, val_seen_human_att , HA_precision: 0.42, HA_recall: 0.42, nss: -0.57, val_unseen_human_att , HA_precision: 0.44, HA_recall: 0.44, nss: -0.40
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 1.0127
+431m 13s (- 4581m 38s) (13764 8%) iter 13764, val_seen , lengths: 130.96, sr: 15.41, oracle_sr: 21.62, spl: 10.60, gp: 54.00, oracle_gp: 63.30, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.60, sr_1: 15.41, gp_1: 54.00, val_unseen , lengths: 126.23, sr: 16.30, oracle_sr: 24.33, spl: 11.30, gp: 56.62, oracle_gp: 62.13, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 11.30, sr_1: 16.30, gp_1: 56.62, val_seen_human_att , HA_precision: 0.46, HA_recall: 0.46, nss: -0.72, val_unseen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.51
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 0.9763
+468m 40s (- 4560m 21s) (14911 9%) iter 14911, val_seen , lengths: 159.93, sr: 12.43, oracle_sr: 24.05, spl: 8.92, gp: 44.98, oracle_gp: 72.34, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 8.92, sr_1: 12.43, gp_1: 44.98, val_unseen , lengths: 158.12, sr: 14.60, oracle_sr: 28.95, spl: 10.04, gp: 46.68, oracle_gp: 72.06, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 10.04, sr_1: 14.60, gp_1: 46.68, val_seen_human_att , HA_precision: 0.45, HA_recall: 0.45, nss: -0.71, val_unseen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.50
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 0.9433
+505m 44s (- 4533m 20s) (16058 10%) iter 16058, val_seen , lengths: 139.74, sr: 12.43, oracle_sr: 19.73, spl: 8.82, gp: 50.91, oracle_gp: 63.94, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 8.82, sr_1: 12.43, gp_1: 50.91, val_unseen , lengths: 136.09, sr: 13.14, oracle_sr: 24.82, spl: 8.76, gp: 53.06, oracle_gp: 62.34, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 8.76, sr_1: 13.14, gp_1: 53.06, val_seen_human_att , HA_precision: 0.46, HA_recall: 0.46, nss: -0.77, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.56
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 0.9053
+543m 17s (- 4509m 3s) (17205 10%) iter 17205, val_seen , lengths: 137.29, sr: 12.16, oracle_sr: 19.73, spl: 8.56, gp: 53.24, oracle_gp: 63.61, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 8.56, sr_1: 12.16, gp_1: 53.24, val_unseen , lengths: 136.54, sr: 16.79, oracle_sr: 25.06, spl: 11.51, gp: 54.51, oracle_gp: 64.20, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 11.51, sr_1: 16.79, gp_1: 54.51, val_seen_human_att , HA_precision: 0.46, HA_recall: 0.46, nss: -0.77, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.56
+BEST RESULT TILL NOW
+val_unseen | Iter 6882 iter 6882, val_seen , lengths: 159.25, sr: 11.08, oracle_sr: 21.89, spl: 7.02, gp: 45.26, oracle_gp: 69.69, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.02, sr_1: 11.08, gp_1: 45.26, val_unseen , lengths: 160.13, sr: 18.00, oracle_sr: 28.95, spl: 11.72, gp: 46.71, oracle_gp: 68.96, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.72, sr_1: 18.00, gp_1: 46.71
+val_unseen_full_traj | 
+
+IL_loss 0.8751
+580m 28s (- 4480m 20s) (18352 11%) iter 18352, val_seen , lengths: 152.28, sr: 13.78, oracle_sr: 23.24, spl: 10.25, gp: 54.10, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.25, sr_1: 13.78, gp_1: 54.10, val_unseen , lengths: 150.34, sr: 18.49, oracle_sr: 27.01, spl: 13.67, gp: 51.62, oracle_gp: 68.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.67, sr_1: 18.49, gp_1: 51.62, val_seen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.78, val_unseen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.55
+BEST RESULT TILL NOW
+val_unseen | Iter 18352 iter 18352, val_seen , lengths: 152.28, sr: 13.78, oracle_sr: 23.24, spl: 10.25, gp: 54.10, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.25, sr_1: 13.78, gp_1: 54.10, val_unseen , lengths: 150.34, sr: 18.49, oracle_sr: 27.01, spl: 13.67, gp: 51.62, oracle_gp: 68.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.67, sr_1: 18.49, gp_1: 51.62
+val_unseen_full_traj | 
+
+IL_loss 0.8556
+617m 48s (- 4451m 41s) (19499 12%) iter 19499, val_seen , lengths: 140.52, sr: 12.97, oracle_sr: 21.08, spl: 9.52, gp: 50.81, oracle_gp: 63.79, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.52, sr_1: 12.97, gp_1: 50.81, val_unseen , lengths: 142.18, sr: 15.57, oracle_sr: 25.06, spl: 10.58, gp: 52.45, oracle_gp: 65.55, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 10.58, sr_1: 15.57, gp_1: 52.45, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.80, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 18352 iter 18352, val_seen , lengths: 152.28, sr: 13.78, oracle_sr: 23.24, spl: 10.25, gp: 54.10, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.25, sr_1: 13.78, gp_1: 54.10, val_unseen , lengths: 150.34, sr: 18.49, oracle_sr: 27.01, spl: 13.67, gp: 51.62, oracle_gp: 68.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.67, sr_1: 18.49, gp_1: 51.62
+val_unseen_full_traj | 
+
+IL_loss 0.8349
+654m 57s (- 4420m 47s) (20646 12%) iter 20646, val_seen , lengths: 169.39, sr: 12.16, oracle_sr: 23.51, spl: 8.56, gp: 44.00, oracle_gp: 74.39, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 8.56, sr_1: 12.16, gp_1: 44.00, val_unseen , lengths: 166.18, sr: 14.60, oracle_sr: 27.49, spl: 10.10, gp: 44.16, oracle_gp: 71.95, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 10.10, sr_1: 14.60, gp_1: 44.16, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.80, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.59
+BEST RESULT TILL NOW
+val_unseen | Iter 18352 iter 18352, val_seen , lengths: 152.28, sr: 13.78, oracle_sr: 23.24, spl: 10.25, gp: 54.10, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.25, sr_1: 13.78, gp_1: 54.10, val_unseen , lengths: 150.34, sr: 18.49, oracle_sr: 27.01, spl: 13.67, gp: 51.62, oracle_gp: 68.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.67, sr_1: 18.49, gp_1: 51.62
+val_unseen_full_traj | 
+
+IL_loss 0.8088
+691m 55s (- 4388m 2s) (21793 13%) iter 21793, val_seen , lengths: 146.58, sr: 13.51, oracle_sr: 22.43, spl: 10.35, gp: 51.75, oracle_gp: 69.75, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.35, sr_1: 13.51, gp_1: 51.75, val_unseen , lengths: 143.99, sr: 17.27, oracle_sr: 30.41, spl: 12.85, gp: 53.31, oracle_gp: 69.31, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.85, sr_1: 17.27, gp_1: 53.31, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.85, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 18352 iter 18352, val_seen , lengths: 152.28, sr: 13.78, oracle_sr: 23.24, spl: 10.25, gp: 54.10, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.25, sr_1: 13.78, gp_1: 54.10, val_unseen , lengths: 150.34, sr: 18.49, oracle_sr: 27.01, spl: 13.67, gp: 51.62, oracle_gp: 68.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.67, sr_1: 18.49, gp_1: 51.62
+val_unseen_full_traj | 
+
+IL_loss 0.8105
+728m 55s (- 4355m 4s) (22940 14%) iter 22940, val_seen , lengths: 141.26, sr: 10.27, oracle_sr: 21.08, spl: 7.90, gp: 47.02, oracle_gp: 67.04, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 7.90, sr_1: 10.27, gp_1: 47.02, val_unseen , lengths: 144.11, sr: 15.09, oracle_sr: 25.06, spl: 11.53, gp: 50.60, oracle_gp: 69.02, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 11.53, sr_1: 15.09, gp_1: 50.60, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.82, val_unseen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.61
+BEST RESULT TILL NOW
+val_unseen | Iter 18352 iter 18352, val_seen , lengths: 152.28, sr: 13.78, oracle_sr: 23.24, spl: 10.25, gp: 54.10, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.25, sr_1: 13.78, gp_1: 54.10, val_unseen , lengths: 150.34, sr: 18.49, oracle_sr: 27.01, spl: 13.67, gp: 51.62, oracle_gp: 68.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.67, sr_1: 18.49, gp_1: 51.62
+val_unseen_full_traj | 
+
+IL_loss 0.7801
+766m 2s (- 4322m 26s) (24087 15%) iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.86, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.59
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7689
+803m 35s (- 4291m 44s) (25234 15%) iter 25234, val_seen , lengths: 132.60, sr: 12.16, oracle_sr: 18.38, spl: 9.40, gp: 54.51, oracle_gp: 66.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.40, sr_1: 12.16, gp_1: 54.51, val_unseen , lengths: 135.61, sr: 18.00, oracle_sr: 27.25, spl: 13.16, gp: 55.32, oracle_gp: 66.39, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.16, sr_1: 18.00, gp_1: 55.32, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.83, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7659
+840m 54s (- 4259m 12s) (26381 16%) iter 26381, val_seen , lengths: 151.84, sr: 12.97, oracle_sr: 22.16, spl: 9.82, gp: 48.37, oracle_gp: 70.52, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.82, sr_1: 12.97, gp_1: 48.37, val_unseen , lengths: 145.86, sr: 16.06, oracle_sr: 27.98, spl: 12.10, gp: 50.91, oracle_gp: 69.42, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 12.10, sr_1: 16.06, gp_1: 50.91, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.85, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7395
+877m 54s (- 4224m 44s) (27528 17%) iter 27528, val_seen , lengths: 150.95, sr: 13.51, oracle_sr: 21.35, spl: 10.82, gp: 48.08, oracle_gp: 70.13, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.82, sr_1: 13.51, gp_1: 48.08, val_unseen , lengths: 145.51, sr: 18.73, oracle_sr: 29.44, spl: 14.61, gp: 51.25, oracle_gp: 69.35, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.61, sr_1: 18.73, gp_1: 51.25, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.84, val_unseen_human_att , HA_precision: 0.53, HA_recall: 0.53, nss: -0.61
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7341
+915m 43s (- 4193m 47s) (28675 17%) iter 28675, val_seen , lengths: 148.49, sr: 14.86, oracle_sr: 24.86, spl: 11.30, gp: 51.87, oracle_gp: 70.68, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.30, sr_1: 14.86, gp_1: 51.87, val_unseen , lengths: 142.58, sr: 16.06, oracle_sr: 27.98, spl: 12.17, gp: 53.15, oracle_gp: 68.44, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.17, sr_1: 16.06, gp_1: 53.15, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.86, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.60
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7301
+953m 8s (- 4160m 37s) (29822 18%) iter 29822, val_seen , lengths: 136.77, sr: 14.05, oracle_sr: 20.00, spl: 11.21, gp: 52.02, oracle_gp: 68.47, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.21, sr_1: 14.05, gp_1: 52.02, val_unseen , lengths: 136.57, sr: 16.06, oracle_sr: 25.55, spl: 13.42, gp: 53.12, oracle_gp: 68.36, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.42, sr_1: 16.06, gp_1: 53.12, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.86, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.63
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7116
+991m 3s (- 4129m 11s) (30969 19%) iter 30969, val_seen , lengths: 152.33, sr: 12.97, oracle_sr: 25.14, spl: 9.97, gp: 51.39, oracle_gp: 72.17, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.97, sr_1: 12.97, gp_1: 51.39, val_unseen , lengths: 149.77, sr: 16.79, oracle_sr: 30.41, spl: 12.06, gp: 51.32, oracle_gp: 70.75, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.06, sr_1: 16.79, gp_1: 51.32, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.89, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.63
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.6981
+1027m 54s (- 4093m 5s) (32116 20%) iter 32116, val_seen , lengths: 149.37, sr: 12.97, oracle_sr: 20.54, spl: 9.88, gp: 49.75, oracle_gp: 69.51, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.88, sr_1: 12.97, gp_1: 49.75, val_unseen , lengths: 144.90, sr: 17.52, oracle_sr: 26.28, spl: 14.48, gp: 51.26, oracle_gp: 68.31, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.48, sr_1: 17.52, gp_1: 51.26, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.86, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.7089
+1065m 24s (- 4059m 22s) (33263 20%) iter 33263, val_seen , lengths: 153.62, sr: 14.05, oracle_sr: 24.05, spl: 10.97, gp: 47.39, oracle_gp: 72.63, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.97, sr_1: 14.05, gp_1: 47.39, val_unseen , lengths: 153.14, sr: 16.30, oracle_sr: 28.71, spl: 12.94, gp: 47.80, oracle_gp: 72.52, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.94, sr_1: 16.30, gp_1: 47.80, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.88, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.6785
+1102m 45s (- 4024m 52s) (34410 21%) iter 34410, val_seen , lengths: 139.37, sr: 14.05, oracle_sr: 23.51, spl: 11.53, gp: 54.38, oracle_gp: 69.98, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.53, sr_1: 14.05, gp_1: 54.38, val_unseen , lengths: 135.52, sr: 15.57, oracle_sr: 26.52, spl: 12.10, gp: 53.29, oracle_gp: 66.83, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.10, sr_1: 15.57, gp_1: 53.29, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.88, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.6680
+1140m 9s (- 3990m 19s) (35557 22%) iter 35557, val_seen , lengths: 138.28, sr: 11.62, oracle_sr: 22.43, spl: 9.33, gp: 52.54, oracle_gp: 69.19, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.33, sr_1: 11.62, gp_1: 52.54, val_unseen , lengths: 135.20, sr: 17.27, oracle_sr: 26.28, spl: 13.70, gp: 50.58, oracle_gp: 65.93, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.70, sr_1: 17.27, gp_1: 50.58, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.6682
+1178m 21s (- 3958m 21s) (36704 22%) iter 36704, val_seen , lengths: 130.47, sr: 13.78, oracle_sr: 22.43, spl: 11.26, gp: 54.33, oracle_gp: 67.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.26, sr_1: 13.78, gp_1: 54.33, val_unseen , lengths: 128.23, sr: 16.55, oracle_sr: 27.74, spl: 13.64, gp: 55.75, oracle_gp: 66.10, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.64, sr_1: 16.55, gp_1: 55.75, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.88, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 24087 iter 24087, val_seen , lengths: 145.74, sr: 15.41, oracle_sr: 23.51, spl: 12.25, gp: 50.14, oracle_gp: 70.29, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 15.41, gp_1: 50.14, val_unseen , lengths: 143.33, sr: 18.25, oracle_sr: 27.25, spl: 14.79, gp: 53.26, oracle_gp: 69.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 53.26
+val_unseen_full_traj | 
+
+IL_loss 0.6616
+1215m 46s (- 3923m 27s) (37851 23%) iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.89, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6705
+1252m 50s (- 3887m 18s) (38998 24%) iter 38998, val_seen , lengths: 142.40, sr: 11.89, oracle_sr: 21.08, spl: 9.79, gp: 50.05, oracle_gp: 69.13, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.79, sr_1: 11.89, gp_1: 50.05, val_unseen , lengths: 143.14, sr: 18.25, oracle_sr: 27.98, spl: 14.73, gp: 51.08, oracle_gp: 70.21, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.73, sr_1: 18.25, gp_1: 51.08, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.87, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6569
+1290m 45s (- 3853m 36s) (40145 25%) iter 40145, val_seen , lengths: 161.88, sr: 11.62, oracle_sr: 20.81, spl: 8.87, gp: 41.71, oracle_gp: 72.00, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 8.87, sr_1: 11.62, gp_1: 41.71, val_unseen , lengths: 162.28, sr: 16.06, oracle_sr: 29.93, spl: 12.87, gp: 40.27, oracle_gp: 71.98, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 12.87, sr_1: 16.06, gp_1: 40.27, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.83, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6432
+1327m 38s (- 3816m 46s) (41292 25%) iter 41292, val_seen , lengths: 140.33, sr: 10.81, oracle_sr: 21.62, spl: 8.12, gp: 47.75, oracle_gp: 67.94, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 8.12, sr_1: 10.81, gp_1: 47.75, val_unseen , lengths: 137.08, sr: 14.84, oracle_sr: 27.74, spl: 12.28, gp: 49.46, oracle_gp: 67.63, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 12.28, sr_1: 14.84, gp_1: 49.46, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.88, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6421
+1364m 16s (- 3779m 11s) (42439 26%) iter 42439, val_seen , lengths: 146.95, sr: 13.78, oracle_sr: 23.24, spl: 10.51, gp: 49.12, oracle_gp: 69.08, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.51, sr_1: 13.78, gp_1: 49.12, val_unseen , lengths: 145.96, sr: 16.79, oracle_sr: 28.71, spl: 13.11, gp: 49.40, oracle_gp: 69.12, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.11, sr_1: 16.79, gp_1: 49.40, val_seen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.85, val_unseen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6252
+1400m 58s (- 3741m 51s) (43586 27%) iter 43586, val_seen , lengths: 143.04, sr: 12.70, oracle_sr: 22.70, spl: 9.62, gp: 53.69, oracle_gp: 69.43, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.62, sr_1: 12.70, gp_1: 53.69, val_unseen , lengths: 136.27, sr: 17.03, oracle_sr: 28.71, spl: 12.98, gp: 55.13, oracle_gp: 67.07, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.98, sr_1: 17.03, gp_1: 55.13, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.88, val_unseen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6207
+1437m 34s (- 3704m 18s) (44733 27%) iter 44733, val_seen , lengths: 131.08, sr: 12.97, oracle_sr: 20.54, spl: 10.39, gp: 50.56, oracle_gp: 64.48, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 10.39, sr_1: 12.97, gp_1: 50.56, val_unseen , lengths: 132.96, sr: 18.49, oracle_sr: 26.28, spl: 14.61, gp: 54.57, oracle_gp: 67.51, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.61, sr_1: 18.49, gp_1: 54.57, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.88, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.63
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6168
+1474m 23s (- 3667m 20s) (45880 28%) iter 45880, val_seen , lengths: 163.75, sr: 11.89, oracle_sr: 24.32, spl: 9.25, gp: 45.02, oracle_gp: 73.70, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 9.25, sr_1: 11.89, gp_1: 45.02, val_unseen , lengths: 158.67, sr: 15.33, oracle_sr: 28.95, spl: 11.69, gp: 48.17, oracle_gp: 71.60, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 11.69, sr_1: 15.33, gp_1: 48.17, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.85, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6128
+1511m 12s (- 3630m 22s) (47027 29%) iter 47027, val_seen , lengths: 144.51, sr: 12.70, oracle_sr: 21.35, spl: 9.54, gp: 50.40, oracle_gp: 68.79, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.54, sr_1: 12.70, gp_1: 50.40, val_unseen , lengths: 142.65, sr: 15.82, oracle_sr: 27.01, spl: 11.73, gp: 51.45, oracle_gp: 67.70, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 11.73, sr_1: 15.82, gp_1: 51.45, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.89, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6025
+1547m 50s (- 3592m 58s) (48174 30%) iter 48174, val_seen , lengths: 153.05, sr: 12.70, oracle_sr: 23.78, spl: 9.74, gp: 48.76, oracle_gp: 71.85, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.74, sr_1: 12.70, gp_1: 48.76, val_unseen , lengths: 148.66, sr: 18.98, oracle_sr: 28.47, spl: 15.33, gp: 50.40, oracle_gp: 71.16, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.33, sr_1: 18.98, gp_1: 50.40, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.87, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.63
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.6017
+1584m 22s (- 3555m 25s) (49321 30%) iter 49321, val_seen , lengths: 142.92, sr: 14.32, oracle_sr: 24.05, spl: 11.76, gp: 54.08, oracle_gp: 71.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.76, sr_1: 14.32, gp_1: 54.08, val_unseen , lengths: 140.00, sr: 17.52, oracle_sr: 26.76, spl: 14.04, gp: 54.59, oracle_gp: 69.57, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.04, sr_1: 17.52, gp_1: 54.59, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.87, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5895
+1620m 49s (- 3517m 42s) (50468 31%) iter 50468, val_seen , lengths: 132.02, sr: 14.32, oracle_sr: 22.43, spl: 11.24, gp: 54.18, oracle_gp: 66.82, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.24, sr_1: 14.32, gp_1: 54.18, val_unseen , lengths: 134.52, sr: 16.55, oracle_sr: 24.57, spl: 12.80, gp: 54.42, oracle_gp: 66.94, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.80, sr_1: 16.55, gp_1: 54.42, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.88, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5813
+1657m 3s (- 3479m 36s) (51615 32%) iter 51615, val_seen , lengths: 139.68, sr: 14.32, oracle_sr: 24.32, spl: 11.68, gp: 51.89, oracle_gp: 69.80, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.68, sr_1: 14.32, gp_1: 51.89, val_unseen , lengths: 137.31, sr: 18.00, oracle_sr: 27.25, spl: 14.62, gp: 55.16, oracle_gp: 69.05, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.62, sr_1: 18.00, gp_1: 55.16, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.85, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5714
+1693m 46s (- 3442m 33s) (52762 32%) iter 52762, val_seen , lengths: 141.17, sr: 14.86, oracle_sr: 24.86, spl: 11.83, gp: 51.45, oracle_gp: 71.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.83, sr_1: 14.86, gp_1: 51.45, val_unseen , lengths: 135.41, sr: 18.25, oracle_sr: 28.95, spl: 14.79, gp: 55.27, oracle_gp: 70.06, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.79, sr_1: 18.25, gp_1: 55.27, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.87, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5951
+1730m 15s (- 3405m 4s) (53909 33%) iter 53909, val_seen , lengths: 133.62, sr: 12.97, oracle_sr: 23.24, spl: 10.71, gp: 53.54, oracle_gp: 69.60, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.71, sr_1: 12.97, gp_1: 53.54, val_unseen , lengths: 134.01, sr: 17.27, oracle_sr: 28.71, spl: 14.33, gp: 53.56, oracle_gp: 69.56, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.33, sr_1: 17.27, gp_1: 53.56, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.87, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5794
+1767m 10s (- 3368m 27s) (55056 34%) iter 55056, val_seen , lengths: 149.73, sr: 12.16, oracle_sr: 22.97, spl: 9.63, gp: 51.10, oracle_gp: 73.28, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.63, sr_1: 12.16, gp_1: 51.10, val_unseen , lengths: 146.96, sr: 17.76, oracle_sr: 32.36, spl: 15.07, gp: 52.51, oracle_gp: 72.00, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.07, sr_1: 17.76, gp_1: 52.51, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.86, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5655
+1803m 50s (- 3331m 21s) (56203 35%) iter 56203, val_seen , lengths: 134.46, sr: 11.89, oracle_sr: 24.05, spl: 10.04, gp: 51.27, oracle_gp: 68.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.04, sr_1: 11.89, gp_1: 51.27, val_unseen , lengths: 128.71, sr: 15.82, oracle_sr: 25.55, spl: 12.26, gp: 55.55, oracle_gp: 67.86, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.26, sr_1: 15.82, gp_1: 55.55, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.89, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5571
+1840m 40s (- 3294m 36s) (57350 35%) iter 57350, val_seen , lengths: 149.74, sr: 15.14, oracle_sr: 25.14, spl: 12.07, gp: 50.00, oracle_gp: 72.44, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.07, sr_1: 15.14, gp_1: 50.00, val_unseen , lengths: 149.52, sr: 15.57, oracle_sr: 28.47, spl: 12.32, gp: 50.35, oracle_gp: 72.21, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.32, sr_1: 15.57, gp_1: 50.35, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.88, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5470
+1877m 9s (- 3257m 13s) (58497 36%) iter 58497, val_seen , lengths: 140.70, sr: 13.51, oracle_sr: 23.51, spl: 11.40, gp: 52.04, oracle_gp: 70.92, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.40, sr_1: 13.51, gp_1: 52.04, val_unseen , lengths: 136.28, sr: 16.55, oracle_sr: 27.25, spl: 13.28, gp: 55.63, oracle_gp: 70.21, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.28, sr_1: 16.55, gp_1: 55.63, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5562
+1913m 15s (- 3219m 13s) (59644 37%) iter 59644, val_seen , lengths: 140.00, sr: 16.76, oracle_sr: 25.68, spl: 14.13, gp: 52.89, oracle_gp: 71.28, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.13, sr_1: 16.76, gp_1: 52.89, val_unseen , lengths: 137.83, sr: 17.27, oracle_sr: 29.44, spl: 13.57, gp: 51.94, oracle_gp: 69.48, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.57, sr_1: 17.27, gp_1: 51.94, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.90, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5423
+1949m 45s (- 3181m 56s) (60791 37%) iter 60791, val_seen , lengths: 141.03, sr: 13.51, oracle_sr: 22.97, spl: 11.19, gp: 54.23, oracle_gp: 72.40, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.19, sr_1: 13.51, gp_1: 54.23, val_unseen , lengths: 138.51, sr: 16.55, oracle_sr: 27.49, spl: 13.53, gp: 53.86, oracle_gp: 70.07, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.53, sr_1: 16.55, gp_1: 53.86, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.89, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5505
+1986m 34s (- 3145m 12s) (61938 38%) iter 61938, val_seen , lengths: 141.88, sr: 14.32, oracle_sr: 25.41, spl: 10.87, gp: 51.04, oracle_gp: 69.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.87, sr_1: 14.32, gp_1: 51.04, val_unseen , lengths: 136.45, sr: 17.27, oracle_sr: 27.98, spl: 13.18, gp: 55.92, oracle_gp: 69.04, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.18, sr_1: 17.27, gp_1: 55.92, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5482
+2023m 7s (- 3108m 2s) (63085 39%) iter 63085, val_seen , lengths: 133.93, sr: 14.05, oracle_sr: 24.05, spl: 11.36, gp: 53.11, oracle_gp: 67.63, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.36, sr_1: 14.05, gp_1: 53.11, val_unseen , lengths: 130.07, sr: 19.46, oracle_sr: 28.47, spl: 15.45, gp: 57.49, oracle_gp: 67.71, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.45, sr_1: 19.46, gp_1: 57.49, val_seen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.89, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5490
+2059m 41s (- 3070m 56s) (64232 40%) iter 64232, val_seen , lengths: 132.95, sr: 12.70, oracle_sr: 24.32, spl: 9.96, gp: 53.89, oracle_gp: 69.42, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 9.96, sr_1: 12.70, gp_1: 53.89, val_unseen , lengths: 131.00, sr: 16.79, oracle_sr: 25.79, spl: 13.75, gp: 55.89, oracle_gp: 67.70, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.75, sr_1: 16.79, gp_1: 55.89, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5560
+2096m 0s (- 3033m 28s) (65379 40%) iter 65379, val_seen , lengths: 130.19, sr: 14.86, oracle_sr: 25.14, spl: 12.63, gp: 55.55, oracle_gp: 69.37, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.63, sr_1: 14.86, gp_1: 55.55, val_unseen , lengths: 124.67, sr: 17.76, oracle_sr: 27.49, spl: 14.11, gp: 58.67, oracle_gp: 67.83, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.11, sr_1: 17.76, gp_1: 58.67, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.92, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5601
+2132m 25s (- 2996m 12s) (66526 41%) iter 66526, val_seen , lengths: 135.82, sr: 13.51, oracle_sr: 24.05, spl: 10.94, gp: 54.95, oracle_gp: 70.44, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.94, sr_1: 13.51, gp_1: 54.95, val_unseen , lengths: 131.34, sr: 17.03, oracle_sr: 27.49, spl: 13.70, gp: 55.16, oracle_gp: 67.87, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.70, sr_1: 17.03, gp_1: 55.16, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5473
+2169m 2s (- 2959m 15s) (67673 42%) iter 67673, val_seen , lengths: 126.85, sr: 17.03, oracle_sr: 23.78, spl: 14.09, gp: 53.07, oracle_gp: 66.93, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.09, sr_1: 17.03, gp_1: 53.07, val_unseen , lengths: 126.61, sr: 18.25, oracle_sr: 27.98, spl: 15.05, gp: 55.97, oracle_gp: 67.89, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.05, sr_1: 18.25, gp_1: 55.97, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.89, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5313
+2205m 11s (- 2921m 40s) (68820 43%) iter 68820, val_seen , lengths: 128.19, sr: 14.05, oracle_sr: 23.24, spl: 11.63, gp: 53.34, oracle_gp: 68.06, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.63, sr_1: 14.05, gp_1: 53.34, val_unseen , lengths: 127.17, sr: 18.49, oracle_sr: 27.74, spl: 15.41, gp: 54.71, oracle_gp: 67.46, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.41, sr_1: 18.49, gp_1: 54.71, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.90, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5316
+2241m 27s (- 2884m 17s) (69967 43%) iter 69967, val_seen , lengths: 136.97, sr: 13.78, oracle_sr: 22.16, spl: 10.94, gp: 53.43, oracle_gp: 68.93, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.94, sr_1: 13.78, gp_1: 53.43, val_unseen , lengths: 134.00, sr: 18.00, oracle_sr: 26.28, spl: 14.80, gp: 55.67, oracle_gp: 68.55, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.80, sr_1: 18.00, gp_1: 55.67, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.91, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5245
+2277m 49s (- 2847m 4s) (71114 44%) iter 71114, val_seen , lengths: 132.79, sr: 15.41, oracle_sr: 26.22, spl: 12.20, gp: 56.95, oracle_gp: 69.73, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.20, sr_1: 15.41, gp_1: 56.95, val_unseen , lengths: 136.57, sr: 18.73, oracle_sr: 28.47, spl: 14.77, gp: 56.52, oracle_gp: 69.62, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.77, sr_1: 18.73, gp_1: 56.52, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5031
+2314m 23s (- 2810m 8s) (72261 45%) iter 72261, val_seen , lengths: 145.33, sr: 12.97, oracle_sr: 25.14, spl: 10.74, gp: 51.20, oracle_gp: 72.79, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.74, sr_1: 12.97, gp_1: 51.20, val_unseen , lengths: 139.77, sr: 16.79, oracle_sr: 29.20, spl: 14.09, gp: 54.09, oracle_gp: 70.85, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.09, sr_1: 16.79, gp_1: 54.09, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.89, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 37851 iter 37851, val_seen , lengths: 126.12, sr: 13.78, oracle_sr: 21.08, spl: 11.14, gp: 54.39, oracle_gp: 64.50, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.14, sr_1: 13.78, gp_1: 54.39, val_unseen , lengths: 124.82, sr: 19.71, oracle_sr: 27.98, spl: 15.56, gp: 57.34, oracle_gp: 64.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.56, sr_1: 19.71, gp_1: 57.34
+val_unseen_full_traj | 
+
+IL_loss 0.5172
+2351m 13s (- 2773m 30s) (73408 45%) iter 73408, val_seen , lengths: 141.66, sr: 13.51, oracle_sr: 24.86, spl: 11.29, gp: 51.63, oracle_gp: 71.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.29, sr_1: 13.51, gp_1: 51.63, val_unseen , lengths: 137.52, sr: 19.46, oracle_sr: 29.44, spl: 15.92, gp: 54.55, oracle_gp: 70.58, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.92, sr_1: 19.46, gp_1: 54.55, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.89, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 73408 iter 73408, val_seen , lengths: 141.66, sr: 13.51, oracle_sr: 24.86, spl: 11.29, gp: 51.63, oracle_gp: 71.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.29, sr_1: 13.51, gp_1: 51.63, val_unseen , lengths: 137.52, sr: 19.46, oracle_sr: 29.44, spl: 15.92, gp: 54.55, oracle_gp: 70.58, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.92, sr_1: 19.46, gp_1: 54.55
+val_unseen_full_traj | 
+
+IL_loss 0.4980
+2388m 1s (- 2736m 50s) (74555 46%) iter 74555, val_seen , lengths: 129.63, sr: 16.49, oracle_sr: 24.86, spl: 13.54, gp: 54.84, oracle_gp: 68.39, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.54, sr_1: 16.49, gp_1: 54.84, val_unseen , lengths: 128.38, sr: 17.27, oracle_sr: 27.01, spl: 14.26, gp: 55.47, oracle_gp: 67.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.26, sr_1: 17.27, gp_1: 55.47, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.92, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 73408 iter 73408, val_seen , lengths: 141.66, sr: 13.51, oracle_sr: 24.86, spl: 11.29, gp: 51.63, oracle_gp: 71.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.29, sr_1: 13.51, gp_1: 51.63, val_unseen , lengths: 137.52, sr: 19.46, oracle_sr: 29.44, spl: 15.92, gp: 54.55, oracle_gp: 70.58, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.92, sr_1: 19.46, gp_1: 54.55
+val_unseen_full_traj | 
+
+IL_loss 0.5097
+2424m 24s (- 2699m 41s) (75702 47%) iter 75702, val_seen , lengths: 134.49, sr: 14.05, oracle_sr: 24.59, spl: 10.96, gp: 54.24, oracle_gp: 69.76, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.96, sr_1: 14.05, gp_1: 54.24, val_unseen , lengths: 129.75, sr: 17.52, oracle_sr: 27.49, spl: 13.86, gp: 55.87, oracle_gp: 67.09, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.86, sr_1: 17.52, gp_1: 55.87, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 73408 iter 73408, val_seen , lengths: 141.66, sr: 13.51, oracle_sr: 24.86, spl: 11.29, gp: 51.63, oracle_gp: 71.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.29, sr_1: 13.51, gp_1: 51.63, val_unseen , lengths: 137.52, sr: 19.46, oracle_sr: 29.44, spl: 15.92, gp: 54.55, oracle_gp: 70.58, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.92, sr_1: 19.46, gp_1: 54.55
+val_unseen_full_traj | 
+
+IL_loss 0.4951
+2460m 43s (- 2662m 31s) (76849 48%) iter 76849, val_seen , lengths: 129.77, sr: 15.14, oracle_sr: 24.86, spl: 12.80, gp: 55.14, oracle_gp: 70.52, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.80, sr_1: 15.14, gp_1: 55.14, val_unseen , lengths: 125.59, sr: 18.49, oracle_sr: 27.01, spl: 15.74, gp: 56.36, oracle_gp: 68.74, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.74, sr_1: 18.49, gp_1: 56.36, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.91, val_unseen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 73408 iter 73408, val_seen , lengths: 141.66, sr: 13.51, oracle_sr: 24.86, spl: 11.29, gp: 51.63, oracle_gp: 71.16, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.29, sr_1: 13.51, gp_1: 51.63, val_unseen , lengths: 137.52, sr: 19.46, oracle_sr: 29.44, spl: 15.92, gp: 54.55, oracle_gp: 70.58, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.92, sr_1: 19.46, gp_1: 54.55
+val_unseen_full_traj | 
+
+IL_loss 0.5001
+2496m 58s (- 2625m 17s) (77996 48%) iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.89, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4797
+2533m 21s (- 2588m 12s) (79143 49%) iter 79143, val_seen , lengths: 129.28, sr: 16.76, oracle_sr: 24.86, spl: 14.29, gp: 57.34, oracle_gp: 71.42, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.29, sr_1: 16.76, gp_1: 57.34, val_unseen , lengths: 123.56, sr: 18.00, oracle_sr: 27.74, spl: 15.12, gp: 55.91, oracle_gp: 66.86, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.12, sr_1: 18.00, gp_1: 55.91, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4839
+2569m 34s (- 2551m 0s) (80290 50%) iter 80290, val_seen , lengths: 131.11, sr: 13.51, oracle_sr: 25.95, spl: 11.51, gp: 55.54, oracle_gp: 71.64, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.51, sr_1: 13.51, gp_1: 55.54, val_unseen , lengths: 131.71, sr: 14.36, oracle_sr: 25.55, spl: 12.02, gp: 53.51, oracle_gp: 69.39, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 12.02, sr_1: 14.36, gp_1: 53.51, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4921
+2605m 49s (- 2513m 51s) (81437 50%) iter 81437, val_seen , lengths: 134.17, sr: 13.24, oracle_sr: 25.14, spl: 11.24, gp: 53.86, oracle_gp: 70.67, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.24, sr_1: 13.24, gp_1: 53.86, val_unseen , lengths: 133.15, sr: 15.57, oracle_sr: 25.06, spl: 13.23, gp: 51.85, oracle_gp: 68.74, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 13.23, sr_1: 15.57, gp_1: 51.85, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.89, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4793
+2642m 0s (- 2476m 40s) (82584 51%) iter 82584, val_seen , lengths: 125.09, sr: 14.86, oracle_sr: 23.78, spl: 13.01, gp: 53.94, oracle_gp: 68.80, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.01, sr_1: 14.86, gp_1: 53.94, val_unseen , lengths: 125.96, sr: 16.06, oracle_sr: 27.74, spl: 13.48, gp: 54.16, oracle_gp: 67.84, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.48, sr_1: 16.06, gp_1: 54.16, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.90, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4715
+2678m 3s (- 2439m 23s) (83731 52%) iter 83731, val_seen , lengths: 133.44, sr: 13.78, oracle_sr: 25.41, spl: 11.51, gp: 52.22, oracle_gp: 69.95, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.51, sr_1: 13.78, gp_1: 52.22, val_unseen , lengths: 132.25, sr: 16.30, oracle_sr: 27.25, spl: 14.02, gp: 53.62, oracle_gp: 69.24, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.02, sr_1: 16.30, gp_1: 53.62, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.91, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4670
+2713m 55s (- 2401m 59s) (84878 53%) iter 84878, val_seen , lengths: 127.09, sr: 14.32, oracle_sr: 24.05, spl: 12.05, gp: 53.00, oracle_gp: 67.62, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.05, sr_1: 14.32, gp_1: 53.00, val_unseen , lengths: 123.33, sr: 16.79, oracle_sr: 26.52, spl: 14.00, gp: 56.28, oracle_gp: 66.47, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.00, sr_1: 16.79, gp_1: 56.28, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4643
+2750m 18s (- 2365m 3s) (86025 53%) iter 86025, val_seen , lengths: 131.60, sr: 16.49, oracle_sr: 28.11, spl: 13.63, gp: 54.72, oracle_gp: 70.11, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.63, sr_1: 16.49, gp_1: 54.72, val_unseen , lengths: 129.38, sr: 18.73, oracle_sr: 26.76, spl: 15.02, gp: 56.08, oracle_gp: 68.80, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.02, sr_1: 18.73, gp_1: 56.08, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4695
+2786m 22s (- 2327m 52s) (87172 54%) iter 87172, val_seen , lengths: 139.19, sr: 13.78, oracle_sr: 25.14, spl: 11.57, gp: 54.02, oracle_gp: 72.46, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.57, sr_1: 13.78, gp_1: 54.02, val_unseen , lengths: 133.02, sr: 16.06, oracle_sr: 28.22, spl: 13.05, gp: 52.84, oracle_gp: 68.74, gt_length: 150.99, iou: 0.19, num_1: 411.00, spl_1: 13.05, sr_1: 16.06, gp_1: 52.84, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4504
+2822m 29s (- 2290m 46s) (88319 55%) iter 88319, val_seen , lengths: 128.49, sr: 15.95, oracle_sr: 25.14, spl: 14.08, gp: 55.20, oracle_gp: 70.25, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.08, sr_1: 15.95, gp_1: 55.20, val_unseen , lengths: 123.02, sr: 16.30, oracle_sr: 26.52, spl: 14.10, gp: 56.12, oracle_gp: 67.71, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.10, sr_1: 16.30, gp_1: 56.12, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.53, HA_recall: 0.53, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4417
+2858m 38s (- 2253m 43s) (89466 55%) iter 89466, val_seen , lengths: 145.80, sr: 14.59, oracle_sr: 27.30, spl: 12.46, gp: 51.43, oracle_gp: 75.29, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.46, sr_1: 14.59, gp_1: 51.43, val_unseen , lengths: 140.79, sr: 17.52, oracle_sr: 28.71, spl: 15.11, gp: 50.54, oracle_gp: 71.92, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.11, sr_1: 17.52, gp_1: 50.54, val_seen_human_att , HA_precision: 0.47, HA_recall: 0.47, nss: -0.92, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4446
+2894m 47s (- 2216m 41s) (90613 56%) iter 90613, val_seen , lengths: 137.92, sr: 14.86, oracle_sr: 24.86, spl: 12.22, gp: 54.13, oracle_gp: 72.07, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.22, sr_1: 14.86, gp_1: 54.13, val_unseen , lengths: 137.58, sr: 19.22, oracle_sr: 29.44, spl: 15.16, gp: 53.01, oracle_gp: 70.75, gt_length: 150.99, iou: 0.22, num_1: 411.00, spl_1: 15.16, sr_1: 19.22, gp_1: 53.01, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.94, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 77996 iter 77996, val_seen , lengths: 114.91, sr: 15.95, oracle_sr: 24.59, spl: 13.70, gp: 56.79, oracle_gp: 65.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.70, sr_1: 15.95, gp_1: 56.79, val_unseen , lengths: 114.04, sr: 18.49, oracle_sr: 27.49, spl: 15.95, gp: 56.82, oracle_gp: 64.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.95, sr_1: 18.49, gp_1: 56.82
+val_unseen_full_traj | 
+
+IL_loss 0.4331
+2931m 14s (- 2179m 54s) (91760 57%) iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4482
+2967m 41s (- 2143m 7s) (92907 58%) iter 92907, val_seen , lengths: 142.50, sr: 14.05, oracle_sr: 26.22, spl: 12.55, gp: 50.63, oracle_gp: 73.03, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.55, sr_1: 14.05, gp_1: 50.63, val_unseen , lengths: 139.22, sr: 18.49, oracle_sr: 29.68, spl: 16.04, gp: 51.04, oracle_gp: 71.52, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 16.04, sr_1: 18.49, gp_1: 51.04, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.92, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4295
+3003m 39s (- 2106m 1s) (94054 58%) iter 94054, val_seen , lengths: 131.69, sr: 14.32, oracle_sr: 25.95, spl: 12.38, gp: 55.81, oracle_gp: 71.48, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.38, sr_1: 14.32, gp_1: 55.81, val_unseen , lengths: 128.33, sr: 18.73, oracle_sr: 29.93, spl: 15.89, gp: 56.20, oracle_gp: 69.29, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.89, sr_1: 18.73, gp_1: 56.20, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.88, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4408
+3039m 23s (- 2068m 46s) (95201 59%) iter 95201, val_seen , lengths: 143.62, sr: 16.22, oracle_sr: 28.11, spl: 13.69, gp: 52.74, oracle_gp: 72.29, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.69, sr_1: 16.22, gp_1: 52.74, val_unseen , lengths: 138.51, sr: 16.30, oracle_sr: 28.47, spl: 13.52, gp: 55.42, oracle_gp: 71.45, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.52, sr_1: 16.30, gp_1: 55.42, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4420
+3075m 30s (- 2031m 49s) (96348 60%) iter 96348, val_seen , lengths: 136.36, sr: 12.97, oracle_sr: 26.49, spl: 11.42, gp: 53.42, oracle_gp: 72.96, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.42, sr_1: 12.97, gp_1: 53.42, val_unseen , lengths: 128.72, sr: 17.27, oracle_sr: 26.76, spl: 15.40, gp: 54.90, oracle_gp: 69.56, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.40, sr_1: 17.27, gp_1: 54.90, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4213
+3111m 28s (- 1994m 48s) (97495 60%) iter 97495, val_seen , lengths: 135.24, sr: 16.76, oracle_sr: 27.84, spl: 14.43, gp: 53.93, oracle_gp: 72.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.43, sr_1: 16.76, gp_1: 53.93, val_unseen , lengths: 132.25, sr: 16.55, oracle_sr: 28.95, spl: 14.12, gp: 54.96, oracle_gp: 70.89, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.12, sr_1: 16.55, gp_1: 54.96, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4258
+3147m 42s (- 1957m 57s) (98642 61%) iter 98642, val_seen , lengths: 141.31, sr: 14.86, oracle_sr: 25.95, spl: 13.40, gp: 49.37, oracle_gp: 73.51, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 13.40, sr_1: 14.86, gp_1: 49.37, val_unseen , lengths: 137.52, sr: 18.00, oracle_sr: 30.17, spl: 15.34, gp: 51.83, oracle_gp: 72.16, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.34, sr_1: 18.00, gp_1: 51.83, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.90, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4293
+3183m 39s (- 1920m 57s) (99789 62%) iter 99789, val_seen , lengths: 141.50, sr: 14.86, oracle_sr: 25.68, spl: 12.76, gp: 52.59, oracle_gp: 72.56, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.76, sr_1: 14.86, gp_1: 52.59, val_unseen , lengths: 139.44, sr: 19.95, oracle_sr: 29.68, spl: 16.84, gp: 54.44, oracle_gp: 72.55, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.84, sr_1: 19.95, gp_1: 54.44, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.89, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4247
+3219m 33s (- 1883m 58s) (100936 63%) iter 100936, val_seen , lengths: 146.20, sr: 14.86, oracle_sr: 26.22, spl: 12.82, gp: 49.16, oracle_gp: 73.65, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.82, sr_1: 14.86, gp_1: 49.16, val_unseen , lengths: 141.36, sr: 17.03, oracle_sr: 29.68, spl: 14.96, gp: 52.02, oracle_gp: 72.14, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.96, sr_1: 17.03, gp_1: 52.02, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.90, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4146
+3255m 37s (- 1847m 5s) (102083 63%) iter 102083, val_seen , lengths: 139.09, sr: 12.97, oracle_sr: 25.41, spl: 10.63, gp: 53.96, oracle_gp: 71.70, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 10.63, sr_1: 12.97, gp_1: 53.96, val_unseen , lengths: 134.81, sr: 16.06, oracle_sr: 27.01, spl: 12.37, gp: 53.20, oracle_gp: 68.10, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.37, sr_1: 16.06, gp_1: 53.20, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4258
+3291m 32s (- 1810m 8s) (103230 64%) iter 103230, val_seen , lengths: 137.77, sr: 12.97, oracle_sr: 25.14, spl: 11.76, gp: 50.22, oracle_gp: 71.05, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 11.76, sr_1: 12.97, gp_1: 50.22, val_unseen , lengths: 130.79, sr: 16.79, oracle_sr: 29.68, spl: 13.91, gp: 56.59, oracle_gp: 70.85, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.91, sr_1: 16.79, gp_1: 56.59, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4143
+3327m 5s (- 1773m 1s) (104377 65%) iter 104377, val_seen , lengths: 135.32, sr: 12.16, oracle_sr: 25.14, spl: 10.37, gp: 52.44, oracle_gp: 71.38, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.37, sr_1: 12.16, gp_1: 52.44, val_unseen , lengths: 131.27, sr: 15.33, oracle_sr: 27.49, spl: 12.80, gp: 55.12, oracle_gp: 70.74, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.80, sr_1: 15.33, gp_1: 55.12, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4119
+3362m 46s (- 1736m 0s) (105524 65%) iter 105524, val_seen , lengths: 119.83, sr: 14.86, oracle_sr: 24.86, spl: 12.82, gp: 55.08, oracle_gp: 66.70, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.82, sr_1: 14.86, gp_1: 55.08, val_unseen , lengths: 118.59, sr: 17.03, oracle_sr: 26.52, spl: 14.35, gp: 56.97, oracle_gp: 66.60, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.35, sr_1: 17.03, gp_1: 56.97, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4058
+3399m 4s (- 1699m 19s) (106671 66%) iter 106671, val_seen , lengths: 136.85, sr: 13.51, oracle_sr: 24.86, spl: 11.45, gp: 52.41, oracle_gp: 71.37, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.45, sr_1: 13.51, gp_1: 52.41, val_unseen , lengths: 132.81, sr: 18.73, oracle_sr: 29.68, spl: 15.88, gp: 55.59, oracle_gp: 71.17, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.88, sr_1: 18.73, gp_1: 55.59, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4251
+3435m 26s (- 1662m 41s) (107818 67%) iter 107818, val_seen , lengths: 137.44, sr: 14.59, oracle_sr: 25.95, spl: 11.94, gp: 51.93, oracle_gp: 70.21, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.94, sr_1: 14.59, gp_1: 51.93, val_unseen , lengths: 133.70, sr: 16.30, oracle_sr: 27.74, spl: 13.55, gp: 56.06, oracle_gp: 70.33, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.55, sr_1: 16.30, gp_1: 56.06, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.93, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3939
+3471m 35s (- 1625m 57s) (108965 68%) iter 108965, val_seen , lengths: 132.01, sr: 17.30, oracle_sr: 27.03, spl: 15.01, gp: 54.75, oracle_gp: 70.81, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 15.01, sr_1: 17.30, gp_1: 54.75, val_unseen , lengths: 130.37, sr: 18.49, oracle_sr: 30.17, spl: 16.00, gp: 56.19, oracle_gp: 69.99, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.00, sr_1: 18.49, gp_1: 56.19, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.93, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3961
+3507m 56s (- 1589m 19s) (110112 68%) iter 110112, val_seen , lengths: 128.15, sr: 14.86, oracle_sr: 25.14, spl: 12.80, gp: 54.41, oracle_gp: 70.10, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.80, sr_1: 14.86, gp_1: 54.41, val_unseen , lengths: 126.02, sr: 16.55, oracle_sr: 28.71, spl: 14.56, gp: 58.11, oracle_gp: 70.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.56, sr_1: 16.55, gp_1: 58.11, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.73
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4059
+3544m 10s (- 1552m 39s) (111259 69%) iter 111259, val_seen , lengths: 138.24, sr: 14.32, oracle_sr: 27.30, spl: 11.97, gp: 53.79, oracle_gp: 72.04, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.97, sr_1: 14.32, gp_1: 53.79, val_unseen , lengths: 135.93, sr: 16.79, oracle_sr: 29.68, spl: 14.28, gp: 56.14, oracle_gp: 71.93, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.28, sr_1: 16.79, gp_1: 56.14, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4044
+3580m 31s (- 1516m 2s) (112406 70%) iter 112406, val_seen , lengths: 150.93, sr: 11.08, oracle_sr: 26.22, spl: 9.46, gp: 48.42, oracle_gp: 75.86, gt_length: 154.19, iou: 0.17, num_1: 370.00, spl_1: 9.46, sr_1: 11.08, gp_1: 48.42, val_unseen , lengths: 146.40, sr: 18.25, oracle_sr: 33.58, spl: 15.32, gp: 51.22, oracle_gp: 74.76, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.32, sr_1: 18.25, gp_1: 51.22, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.89, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3985
+3616m 54s (- 1479m 26s) (113553 70%) iter 113553, val_seen , lengths: 145.76, sr: 12.97, oracle_sr: 27.30, spl: 11.10, gp: 49.32, oracle_gp: 74.18, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.10, sr_1: 12.97, gp_1: 49.32, val_unseen , lengths: 140.14, sr: 16.79, oracle_sr: 29.44, spl: 14.97, gp: 52.07, oracle_gp: 72.12, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.97, sr_1: 16.79, gp_1: 52.07, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.94, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.75
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3979
+3652m 55s (- 1442m 42s) (114700 71%) iter 114700, val_seen , lengths: 131.01, sr: 15.95, oracle_sr: 27.57, spl: 14.38, gp: 52.52, oracle_gp: 70.77, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.38, sr_1: 15.95, gp_1: 52.52, val_unseen , lengths: 130.77, sr: 17.76, oracle_sr: 28.47, spl: 15.03, gp: 55.64, oracle_gp: 71.00, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.03, sr_1: 17.76, gp_1: 55.64, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.95, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3960
+3689m 10s (- 1406m 3s) (115847 72%) iter 115847, val_seen , lengths: 138.50, sr: 13.78, oracle_sr: 25.41, spl: 12.07, gp: 52.07, oracle_gp: 72.68, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.07, sr_1: 13.78, gp_1: 52.07, val_unseen , lengths: 131.56, sr: 16.55, oracle_sr: 30.41, spl: 14.30, gp: 55.80, oracle_gp: 71.20, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.30, sr_1: 16.55, gp_1: 55.80, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.92, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4034
+3725m 15s (- 1369m 22s) (116994 73%) iter 116994, val_seen , lengths: 134.04, sr: 14.86, oracle_sr: 27.57, spl: 12.48, gp: 52.72, oracle_gp: 69.20, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.48, sr_1: 14.86, gp_1: 52.72, val_unseen , lengths: 129.01, sr: 19.46, oracle_sr: 29.68, spl: 16.38, gp: 56.97, oracle_gp: 69.51, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.38, sr_1: 19.46, gp_1: 56.97, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.95, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4148
+3761m 16s (- 1332m 40s) (118141 73%) iter 118141, val_seen , lengths: 132.85, sr: 11.35, oracle_sr: 22.70, spl: 9.88, gp: 52.93, oracle_gp: 70.11, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 9.88, sr_1: 11.35, gp_1: 52.93, val_unseen , lengths: 130.29, sr: 17.03, oracle_sr: 28.47, spl: 14.20, gp: 56.58, oracle_gp: 70.43, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.20, sr_1: 17.03, gp_1: 56.58, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4289
+3797m 31s (- 1296m 3s) (119288 74%) iter 119288, val_seen , lengths: 136.28, sr: 13.78, oracle_sr: 24.86, spl: 11.96, gp: 49.48, oracle_gp: 69.97, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.96, sr_1: 13.78, gp_1: 49.48, val_unseen , lengths: 133.44, sr: 17.76, oracle_sr: 27.74, spl: 15.08, gp: 56.14, oracle_gp: 70.65, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.08, sr_1: 17.76, gp_1: 56.14, val_seen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4352
+3833m 31s (- 1259m 22s) (120435 75%) iter 120435, val_seen , lengths: 139.39, sr: 14.32, oracle_sr: 27.03, spl: 11.86, gp: 49.86, oracle_gp: 70.19, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.86, sr_1: 14.32, gp_1: 49.86, val_unseen , lengths: 138.07, sr: 17.76, oracle_sr: 30.66, spl: 15.32, gp: 54.69, oracle_gp: 70.86, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.32, sr_1: 17.76, gp_1: 54.69, val_seen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.90, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4360
+3869m 41s (- 1222m 45s) (121582 75%) iter 121582, val_seen , lengths: 135.69, sr: 14.86, oracle_sr: 26.22, spl: 12.36, gp: 52.90, oracle_gp: 70.42, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.36, sr_1: 14.86, gp_1: 52.90, val_unseen , lengths: 134.45, sr: 17.27, oracle_sr: 28.71, spl: 14.71, gp: 57.68, oracle_gp: 71.56, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.71, sr_1: 17.27, gp_1: 57.68, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.92, val_unseen_human_att , HA_precision: 0.53, HA_recall: 0.53, nss: -0.66
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4408
+3906m 2s (- 1186m 12s) (122729 76%) iter 122729, val_seen , lengths: 149.72, sr: 13.51, oracle_sr: 25.68, spl: 10.42, gp: 53.19, oracle_gp: 74.25, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.42, sr_1: 13.51, gp_1: 53.19, val_unseen , lengths: 141.18, sr: 18.25, oracle_sr: 30.17, spl: 15.33, gp: 56.35, oracle_gp: 71.92, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.33, sr_1: 18.25, gp_1: 56.35, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.92, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4314
+3942m 9s (- 1149m 35s) (123876 77%) iter 123876, val_seen , lengths: 135.70, sr: 14.59, oracle_sr: 25.14, spl: 12.02, gp: 52.23, oracle_gp: 69.15, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.02, sr_1: 14.59, gp_1: 52.23, val_unseen , lengths: 134.31, sr: 17.03, oracle_sr: 30.17, spl: 14.07, gp: 56.02, oracle_gp: 69.52, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.07, sr_1: 17.03, gp_1: 56.02, val_seen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.90, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4273
+3978m 27s (- 1113m 1s) (125023 78%) iter 125023, val_seen , lengths: 137.74, sr: 14.86, oracle_sr: 25.95, spl: 12.41, gp: 51.85, oracle_gp: 71.09, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.41, sr_1: 14.86, gp_1: 51.85, val_unseen , lengths: 131.61, sr: 16.55, oracle_sr: 29.68, spl: 13.84, gp: 55.94, oracle_gp: 69.65, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.84, sr_1: 16.55, gp_1: 55.94, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4159
+4014m 41s (- 1076m 27s) (126170 78%) iter 126170, val_seen , lengths: 118.72, sr: 13.24, oracle_sr: 23.78, spl: 11.60, gp: 53.13, oracle_gp: 65.52, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.60, sr_1: 13.24, gp_1: 53.13, val_unseen , lengths: 118.96, sr: 17.76, oracle_sr: 27.25, spl: 15.15, gp: 58.45, oracle_gp: 67.79, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.15, sr_1: 17.76, gp_1: 58.45, val_seen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.92, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3833
+4050m 39s (- 1039m 49s) (127317 79%) iter 127317, val_seen , lengths: 123.87, sr: 14.32, oracle_sr: 27.03, spl: 12.43, gp: 53.18, oracle_gp: 67.54, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.43, sr_1: 14.32, gp_1: 53.18, val_unseen , lengths: 125.36, sr: 17.76, oracle_sr: 28.71, spl: 15.19, gp: 57.05, oracle_gp: 68.85, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 15.19, sr_1: 17.76, gp_1: 57.05, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3751
+4086m 38s (- 1003m 12s) (128464 80%) iter 128464, val_seen , lengths: 134.25, sr: 14.32, oracle_sr: 29.46, spl: 11.95, gp: 53.93, oracle_gp: 70.92, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 11.95, sr_1: 14.32, gp_1: 53.93, val_unseen , lengths: 134.87, sr: 18.73, oracle_sr: 29.68, spl: 15.62, gp: 56.90, oracle_gp: 70.69, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.62, sr_1: 18.73, gp_1: 56.90, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.95, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.72
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3822
+4122m 40s (- 966m 36s) (129611 81%) iter 129611, val_seen , lengths: 128.40, sr: 14.59, oracle_sr: 23.78, spl: 12.25, gp: 52.73, oracle_gp: 67.48, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.25, sr_1: 14.59, gp_1: 52.73, val_unseen , lengths: 126.11, sr: 16.30, oracle_sr: 26.28, spl: 13.38, gp: 58.50, oracle_gp: 68.27, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.38, sr_1: 16.30, gp_1: 58.50, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.94, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3913
+4158m 33s (- 929m 59s) (130758 81%) iter 130758, val_seen , lengths: 127.84, sr: 14.05, oracle_sr: 25.14, spl: 12.21, gp: 53.57, oracle_gp: 68.74, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.21, sr_1: 14.05, gp_1: 53.57, val_unseen , lengths: 123.70, sr: 16.55, oracle_sr: 27.25, spl: 14.31, gp: 55.34, oracle_gp: 67.49, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.31, sr_1: 16.55, gp_1: 55.34, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.95, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.74
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3934
+4193m 47s (- 893m 15s) (131905 82%) iter 131905, val_seen , lengths: 137.89, sr: 15.41, oracle_sr: 27.03, spl: 13.08, gp: 54.35, oracle_gp: 71.36, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.08, sr_1: 15.41, gp_1: 54.35, val_unseen , lengths: 138.15, sr: 17.03, oracle_sr: 27.98, spl: 14.32, gp: 53.90, oracle_gp: 69.80, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.32, sr_1: 17.03, gp_1: 53.90, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4206
+4229m 22s (- 856m 36s) (133052 83%) iter 133052, val_seen , lengths: 136.51, sr: 13.78, oracle_sr: 24.86, spl: 11.71, gp: 52.32, oracle_gp: 70.28, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.71, sr_1: 13.78, gp_1: 52.32, val_unseen , lengths: 135.29, sr: 17.27, oracle_sr: 28.95, spl: 14.68, gp: 53.78, oracle_gp: 70.43, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.68, sr_1: 17.27, gp_1: 53.78, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.94, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4247
+4264m 49s (- 819m 57s) (134199 83%) iter 134199, val_seen , lengths: 134.84, sr: 14.05, oracle_sr: 23.78, spl: 12.03, gp: 53.84, oracle_gp: 71.00, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.03, sr_1: 14.05, gp_1: 53.84, val_unseen , lengths: 129.47, sr: 18.73, oracle_sr: 28.95, spl: 16.12, gp: 56.99, oracle_gp: 69.53, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.12, sr_1: 18.73, gp_1: 56.99, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.96, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4239
+4299m 48s (- 783m 13s) (135346 84%) iter 135346, val_seen , lengths: 136.74, sr: 15.41, oracle_sr: 25.68, spl: 13.02, gp: 52.74, oracle_gp: 70.88, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.02, sr_1: 15.41, gp_1: 52.74, val_unseen , lengths: 136.27, sr: 19.71, oracle_sr: 30.41, spl: 16.33, gp: 57.13, oracle_gp: 72.44, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.33, sr_1: 19.71, gp_1: 57.13, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4170
+4334m 52s (- 746m 33s) (136493 85%) iter 136493, val_seen , lengths: 141.82, sr: 13.51, oracle_sr: 25.95, spl: 11.48, gp: 50.99, oracle_gp: 71.02, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.48, sr_1: 13.51, gp_1: 50.99, val_unseen , lengths: 141.69, sr: 14.60, oracle_sr: 30.41, spl: 12.60, gp: 54.16, oracle_gp: 72.44, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.60, sr_1: 14.60, gp_1: 54.16, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.94, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.71
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4147
+4370m 6s (- 709m 56s) (137640 86%) iter 137640, val_seen , lengths: 137.69, sr: 13.51, oracle_sr: 24.86, spl: 11.05, gp: 51.39, oracle_gp: 70.09, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.05, sr_1: 13.51, gp_1: 51.39, val_unseen , lengths: 136.87, sr: 18.25, oracle_sr: 30.90, spl: 15.43, gp: 57.83, oracle_gp: 72.48, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.43, sr_1: 18.25, gp_1: 57.83, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.91, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.4072
+4405m 47s (- 673m 24s) (138787 86%) iter 138787, val_seen , lengths: 125.25, sr: 14.86, oracle_sr: 24.59, spl: 12.70, gp: 53.56, oracle_gp: 68.71, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.70, sr_1: 14.86, gp_1: 53.56, val_unseen , lengths: 125.60, sr: 16.55, oracle_sr: 27.49, spl: 14.25, gp: 57.68, oracle_gp: 70.49, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.25, sr_1: 16.55, gp_1: 57.68, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.92, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3898
+4441m 16s (- 636m 51s) (139934 87%) iter 139934, val_seen , lengths: 137.35, sr: 15.14, oracle_sr: 26.22, spl: 12.99, gp: 54.38, oracle_gp: 72.18, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.99, sr_1: 15.14, gp_1: 54.38, val_unseen , lengths: 133.91, sr: 15.09, oracle_sr: 29.20, spl: 13.22, gp: 57.33, oracle_gp: 71.91, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.22, sr_1: 15.09, gp_1: 57.33, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3807
+4476m 54s (- 600m 21s) (141081 88%) iter 141081, val_seen , lengths: 125.70, sr: 14.32, oracle_sr: 24.86, spl: 12.50, gp: 54.41, oracle_gp: 68.83, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.50, sr_1: 14.32, gp_1: 54.41, val_unseen , lengths: 125.24, sr: 15.57, oracle_sr: 28.47, spl: 13.68, gp: 58.34, oracle_gp: 69.89, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.68, sr_1: 15.57, gp_1: 58.34, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.68
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3998
+4512m 14s (- 563m 49s) (142228 88%) iter 142228, val_seen , lengths: 128.96, sr: 14.59, oracle_sr: 24.86, spl: 12.72, gp: 54.87, oracle_gp: 71.07, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.72, sr_1: 14.59, gp_1: 54.87, val_unseen , lengths: 127.29, sr: 18.73, oracle_sr: 29.44, spl: 16.70, gp: 57.06, oracle_gp: 71.16, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.70, sr_1: 18.73, gp_1: 57.06, val_seen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.93, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3844
+4547m 30s (- 527m 18s) (143375 89%) iter 143375, val_seen , lengths: 132.71, sr: 16.76, oracle_sr: 26.76, spl: 14.00, gp: 56.29, oracle_gp: 71.46, gt_length: 154.19, iou: 0.20, num_1: 370.00, spl_1: 14.00, sr_1: 16.76, gp_1: 56.29, val_unseen , lengths: 129.30, sr: 18.49, oracle_sr: 29.93, spl: 15.90, gp: 57.78, oracle_gp: 70.63, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.90, sr_1: 18.49, gp_1: 57.78, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.96, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.72
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3750
+4582m 57s (- 490m 49s) (144522 90%) iter 144522, val_seen , lengths: 131.06, sr: 12.97, oracle_sr: 23.24, spl: 11.17, gp: 53.71, oracle_gp: 69.77, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.17, sr_1: 12.97, gp_1: 53.71, val_unseen , lengths: 126.73, sr: 16.55, oracle_sr: 29.44, spl: 14.43, gp: 57.65, oracle_gp: 70.09, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.43, sr_1: 16.55, gp_1: 57.65, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.94, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.69
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3791
+4619m 16s (- 454m 26s) (145669 91%) iter 145669, val_seen , lengths: 135.56, sr: 14.86, oracle_sr: 25.14, spl: 12.43, gp: 52.69, oracle_gp: 71.05, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.43, sr_1: 14.86, gp_1: 52.69, val_unseen , lengths: 132.70, sr: 19.46, oracle_sr: 29.93, spl: 16.71, gp: 56.96, oracle_gp: 71.05, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.71, sr_1: 19.46, gp_1: 56.96, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.94, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3699
+4655m 38s (- 418m 4s) (146816 91%) iter 146816, val_seen , lengths: 140.92, sr: 12.43, oracle_sr: 23.51, spl: 10.50, gp: 50.89, oracle_gp: 71.37, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.50, sr_1: 12.43, gp_1: 50.89, val_unseen , lengths: 139.46, sr: 18.00, oracle_sr: 30.41, spl: 15.19, gp: 56.39, oracle_gp: 73.19, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.19, sr_1: 18.00, gp_1: 56.39, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.94, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.72
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3663
+4691m 21s (- 381m 38s) (147963 92%) iter 147963, val_seen , lengths: 138.03, sr: 14.32, oracle_sr: 27.30, spl: 12.29, gp: 51.05, oracle_gp: 71.28, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 12.29, sr_1: 14.32, gp_1: 51.05, val_unseen , lengths: 137.64, sr: 15.33, oracle_sr: 30.90, spl: 13.07, gp: 55.58, oracle_gp: 73.28, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.07, sr_1: 15.33, gp_1: 55.58, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.94, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3507
+4726m 48s (- 345m 12s) (149110 93%) iter 149110, val_seen , lengths: 130.61, sr: 17.03, oracle_sr: 25.95, spl: 14.54, gp: 52.68, oracle_gp: 69.49, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.54, sr_1: 17.03, gp_1: 52.68, val_unseen , lengths: 128.38, sr: 16.06, oracle_sr: 28.71, spl: 13.31, gp: 57.09, oracle_gp: 70.56, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.31, sr_1: 16.06, gp_1: 57.09, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3616
+4762m 16s (- 308m 47s) (150257 93%) iter 150257, val_seen , lengths: 135.60, sr: 17.57, oracle_sr: 26.76, spl: 14.64, gp: 54.95, oracle_gp: 71.94, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.64, sr_1: 17.57, gp_1: 54.95, val_unseen , lengths: 135.35, sr: 18.49, oracle_sr: 29.93, spl: 16.04, gp: 57.96, oracle_gp: 72.47, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.04, sr_1: 18.49, gp_1: 57.96, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.94, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.74
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3574
+4797m 45s (- 272m 23s) (151404 94%) iter 151404, val_seen , lengths: 141.09, sr: 12.70, oracle_sr: 27.03, spl: 10.88, gp: 52.70, oracle_gp: 73.92, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.88, sr_1: 12.70, gp_1: 52.70, val_unseen , lengths: 139.18, sr: 15.57, oracle_sr: 29.20, spl: 13.13, gp: 54.87, oracle_gp: 73.73, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 13.13, sr_1: 15.57, gp_1: 54.87, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.95, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3628
+4833m 4s (- 235m 59s) (152551 95%) iter 152551, val_seen , lengths: 138.63, sr: 12.43, oracle_sr: 25.68, spl: 10.25, gp: 53.42, oracle_gp: 73.18, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 10.25, sr_1: 12.43, gp_1: 53.42, val_unseen , lengths: 134.18, sr: 14.84, oracle_sr: 29.20, spl: 12.87, gp: 55.69, oracle_gp: 71.84, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.87, sr_1: 14.84, gp_1: 55.69, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.93, val_unseen_human_att , HA_precision: 0.52, HA_recall: 0.52, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3421
+4868m 26s (- 199m 37s) (153698 96%) iter 153698, val_seen , lengths: 142.75, sr: 13.78, oracle_sr: 25.41, spl: 11.40, gp: 50.97, oracle_gp: 73.45, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.40, sr_1: 13.78, gp_1: 50.97, val_unseen , lengths: 136.43, sr: 16.06, oracle_sr: 28.22, spl: 13.49, gp: 55.21, oracle_gp: 72.75, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.49, sr_1: 16.06, gp_1: 55.21, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.92, val_unseen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3557
+4904m 16s (- 163m 16s) (154845 96%) iter 154845, val_seen , lengths: 123.06, sr: 15.95, oracle_sr: 24.86, spl: 13.85, gp: 55.94, oracle_gp: 67.76, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.85, sr_1: 15.95, gp_1: 55.94, val_unseen , lengths: 120.68, sr: 18.98, oracle_sr: 29.20, spl: 15.84, gp: 59.19, oracle_gp: 68.30, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 15.84, sr_1: 18.98, gp_1: 59.19, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.93, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.62
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3441
+4940m 13s (- 126m 55s) (155992 97%) iter 155992, val_seen , lengths: 136.25, sr: 15.41, oracle_sr: 27.30, spl: 12.54, gp: 53.47, oracle_gp: 70.84, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.54, sr_1: 15.41, gp_1: 53.47, val_unseen , lengths: 136.26, sr: 16.55, oracle_sr: 31.14, spl: 13.25, gp: 55.67, oracle_gp: 71.57, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 13.25, sr_1: 16.55, gp_1: 55.67, val_seen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.94, val_unseen_human_att , HA_precision: 0.53, HA_recall: 0.53, nss: -0.70
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3485
+4975m 59s (- 90m 35s) (157139 98%) iter 157139, val_seen , lengths: 138.60, sr: 15.41, oracle_sr: 27.57, spl: 12.76, gp: 54.94, oracle_gp: 73.51, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.76, sr_1: 15.41, gp_1: 54.94, val_unseen , lengths: 138.30, sr: 14.36, oracle_sr: 27.98, spl: 12.09, gp: 54.65, oracle_gp: 71.84, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.09, sr_1: 14.36, gp_1: 54.65, val_seen_human_att , HA_precision: 0.48, HA_recall: 0.48, nss: -0.93, val_unseen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.67
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3405
+5011m 47s (- 54m 16s) (158286 98%) iter 158286, val_seen , lengths: 127.55, sr: 12.97, oracle_sr: 22.97, spl: 11.05, gp: 54.32, oracle_gp: 69.09, gt_length: 154.19, iou: 0.18, num_1: 370.00, spl_1: 11.05, sr_1: 12.97, gp_1: 54.32, val_unseen , lengths: 125.08, sr: 16.06, oracle_sr: 29.44, spl: 14.11, gp: 56.94, oracle_gp: 69.29, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 14.11, sr_1: 16.06, gp_1: 56.94, val_seen_human_att , HA_precision: 0.49, HA_recall: 0.49, nss: -0.90, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3519
+5047m 27s (- 17m 57s) (159433 99%) iter 159433, val_seen , lengths: 131.83, sr: 16.49, oracle_sr: 27.30, spl: 14.44, gp: 54.92, oracle_gp: 70.67, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 14.44, sr_1: 16.49, gp_1: 54.92, val_unseen , lengths: 131.08, sr: 15.57, oracle_sr: 29.20, spl: 12.57, gp: 54.87, oracle_gp: 69.63, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 12.57, sr_1: 15.57, gp_1: 54.87, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.92, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.65
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 
+
+IL_loss 0.3678
+5083m 13s (- -19m 38s) (160580 100%) iter 160580, val_seen , lengths: 133.68, sr: 15.14, oracle_sr: 25.95, spl: 13.17, gp: 55.30, oracle_gp: 71.85, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 13.17, sr_1: 15.14, gp_1: 55.30, val_unseen , lengths: 130.17, sr: 17.03, oracle_sr: 29.20, spl: 14.71, gp: 55.78, oracle_gp: 70.04, gt_length: 150.99, iou: 0.20, num_1: 411.00, spl_1: 14.71, sr_1: 17.03, gp_1: 55.78, val_seen_human_att , HA_precision: 0.50, HA_recall: 0.50, nss: -0.91, val_unseen_human_att , HA_precision: 0.51, HA_recall: 0.51, nss: -0.64
+BEST RESULT TILL NOW
+val_unseen | Iter 91760 iter 91760, val_seen , lengths: 140.18, sr: 15.14, oracle_sr: 24.86, spl: 12.88, gp: 52.55, oracle_gp: 72.33, gt_length: 154.19, iou: 0.19, num_1: 370.00, spl_1: 12.88, sr_1: 15.14, gp_1: 52.55, val_unseen , lengths: 138.74, sr: 20.19, oracle_sr: 30.17, spl: 16.88, gp: 51.90, oracle_gp: 70.45, gt_length: 150.99, iou: 0.21, num_1: 411.00, spl_1: 16.88, sr_1: 20.19, gp_1: 51.90
+val_unseen_full_traj | 

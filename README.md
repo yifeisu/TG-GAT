@@ -1,6 +1,6 @@
 # TG-GAT for AVDN.
 
-**Official Code for the 1st Place Solution of ICCV 2023 AVDN Challenge**. 
+**Official Code for the 1st Place Solution of ICCV CLVL 2023 AVDN Challenge**. 
 
 The corresponding technical report is [Target-Grounded Graph-Aware Transformer for Aerial Vision-and-Dialog Navigation](https://arxiv.org/abs/2308.11561). 
 
@@ -12,9 +12,9 @@ You can check the specific details of the AVDN competition on the [official webs
 
 ## Abstract
 
-This report details the method of the winning entry of the AVDN Challenge in ICCV 2023. The competition addresses the Aerial Navigation from Dialog History (ANDH) task, which requires a drone agent to associate dialog history with aerial observations to reach the destination. For better cross-modal grounding abilities of the drone agent, we propose a Target-Grounded Graph-Aware Transformer (TG-GAT) framework. Concretely, TG-GAT first leverages a graph-aware transformer to capture spatiotemporal dependency, which benefits navigation state tracking and robust action planning. In addition, an auxiliary visual grounding task is devised to boost the agent’s awareness of referred landmarks. Moreover, a hybrid augmentation strategy based on large language models is utilized to mitigate data scarcity limitations. Our TG-GA framework won the AVDN Challenge 2023, with 2.2% and 3.0% absolute improvements over the baseline on SPL and SR metrics, respectively. 
+This report details the method of the winning entry of the AVDN Challenge in ICCV CLVL 2023. The competition addresses the Aerial Navigation from Dialog History (ANDH) task, which requires a drone agent to associate dialog history with aerial observations to reach the destination. For better cross-modal grounding abilities of the drone agent, we propose a Target-Grounded Graph-Aware Transformer (TG-GAT) framework. Concretely, TG-GAT first leverages a graph-aware transformer to capture spatiotemporal dependency, which benefits navigation state tracking and robust action planning. In addition, an auxiliary visual grounding task is devised to boost the agent’s awareness of referred landmarks. Moreover, a hybrid augmentation strategy based on large language models is utilized to mitigate data scarcity limitations. Our TG-GA framework won the AVDN Challenge, with 2.2% and 3.0% absolute improvements over the baseline on SPL and SR metrics, respectively. 
 
-We recommend referring to the original [AVDN paper](https://arxiv.org/abs/2205.12219) for more detailed information.
+For AVDN task,  we recommend referring to the original [AVDN paper](https://arxiv.org/abs/2205.12219) for more detailed information.
 
 
 
@@ -22,7 +22,8 @@ We recommend referring to the original [AVDN paper](https://arxiv.org/abs/2205.1
 
 - [x] LLM-augmented instruction data;
 - [x] Code with support for multi-GPU training;
-- [ ] Trained logs and models;
+- [x] Trained logs;
+- [ ] Trained models;
 
 
 
@@ -30,7 +31,7 @@ We recommend referring to the original [AVDN paper](https://arxiv.org/abs/2205.1
 
 #### Installation
 
-We utilized the same environment as the AVDN [baseline code](https://github.com/eric-ai-lab/Aerial-Vision-and-Dialog-Navigation).
+We utilized the same environment as the [AVDN baseline](https://github.com/eric-ai-lab/Aerial-Vision-and-Dialog-Navigation).
 
 ```bash
 pip install torch==1.11.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
@@ -71,6 +72,19 @@ project_root/
 ├── README.md
 ├── requirements.txt
 ```
+
+
+
+## Training logs
+
+We present training logs corresponding to the 4 models under the 'src' directory in our implementation.
+
+|               **Model**               | **SPL** | **SR** | **GP** | logs |
+| :-----------------------------------: | :-----: | :----: | :----: | :----: |
+|                 imga                  |  16.9   |  20.2  |  51.9  | [logs.txt](tg-gat-logs/imga.txt) |
+|              imga+langa               |  18.2   |  20.9  |  58.2  | [logs.txt](tg-gat-logs/imga+langa.txt) |
+|  imga+mhca+gr+roberta+yolov5x   |  18.8   |  23.3  |  54.3  | [logs.txt](tg-gat-logs/imga+mhca+gr+roberta+yolov5x.txt) |
+| img+mhca+gr+roberta+yolov5x+gat |  18.4   |  22.6  |  58.1  | [logs.txt](tg-gat-logs/imga+mhca+gr+roberta+yolov5x+gat.txt) |
 
 
 
