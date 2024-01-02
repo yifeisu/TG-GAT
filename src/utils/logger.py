@@ -9,21 +9,23 @@ def write_to_record_file(data, file_path, verbose=True):
     if verbose:
         print(data)
     record_file = open(file_path, 'a')
-    record_file.write(data+'\n')
+    record_file.write(data + '\n')
     record_file.close()
 
-    
+
 def asMinutes(s):
     m = math.floor(s / 60)
     s -= m * 60
     return '%dm %ds' % (m, s)
 
+
 def timeSince(since, percent):
     now = time.time()
     s = now - since
-    es = s / (percent)
+    es = s / percent
     rs = es - s
     return '%s (- %s)' % (asMinutes(s), asMinutes(rs))
+
 
 class Timer:
     def __init__(self):
@@ -53,7 +55,7 @@ class Timer:
         total = sum(self.cul.values())
         for key in self.cul:
             print("%s, total time %0.2f, avg time %0.2f, part of %0.2f" %
-                  (key, self.cul[key], self.cul[key]*1./self.iter, self.cul[key]*1./total))
+                  (key, self.cul[key], self.cul[key] * 1. / self.iter, self.cul[key] * 1. / total))
         print(total / self.iter)
 
 
